@@ -1,0 +1,35 @@
+#@ load("@ytt:data", "data")
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: certmanager-install-default-sa
+  namespace: #@ data.values.certmanager.namespace
+  annotations:
+    kapp.k14s.io/change-group: certmanager-install/rbac
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: certmanager-install-default-role
+  annotations:
+    kapp.k14s.io/change-group: certmanager-install/rbac
+rules:
+- apiGroups: ["*"]
+  resources: ["*"]
+  verbs: ["*"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: certmanager-install-default-role-binding
+  annotations:
+    kapp.k14s.io/change-group: certmanager-install/rbac
+subjects:
+- kind: ServiceAccount
+  name: certmanager-install-default-sa
+  namespace: #@ data.values.certmanager.namespace
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: certmanager-install-default-role
