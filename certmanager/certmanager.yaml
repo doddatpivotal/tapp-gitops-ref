@@ -7,8 +7,6 @@ metadata:
   namespace: #@ data.values.certmanager.namespace
   annotations:
     kapp.k14s.io/change-group: tap
-    # kapp.k14s.io/change-rule: "upsert after upserting tap-install/rbac"
-    # kapp.k14s.io/change-rule.repo: "upsert after upserting tap-install/tap-repo"
 spec:
   packageRef:
     refName: cert-manager.tanzu.vmware.com
