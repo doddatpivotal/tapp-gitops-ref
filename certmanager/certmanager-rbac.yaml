@@ -7,6 +7,7 @@ metadata:
   namespace: #@ data.values.certmanager.namespace
   annotations:
     kapp.k14s.io/change-group: certmanager-install/rbac
+    kapp.k14s.io/change-rule: "delete after deleting certmanager"
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -14,6 +15,8 @@ metadata:
   name: certmanager-install-default-role
   annotations:
     kapp.k14s.io/change-group: certmanager-install/rbac
+    kapp.k14s.io/change-rule: "delete after deleting certmanager"
+
 rules:
 - apiGroups: ["*"]
   resources: ["*"]
@@ -25,6 +28,7 @@ metadata:
   name: certmanager-install-default-role-binding
   annotations:
     kapp.k14s.io/change-group: certmanager-install/rbac
+    kapp.k14s.io/change-rule: "delete after deleting certmanager"
 subjects:
 - kind: ServiceAccount
   name: certmanager-install-default-sa
