@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: tap-install-gitops-sa2
-  namespace: tap-install-gitops2
+  name: tap-install-gitops-sa3
+  namespace: tap-install-gitops3
   annotations:
     kapp.k14s.io/change-group: tap-install-gitops/rbac
     kapp.k14s.io/change-rule: "delete after deleting tap-install-gitops/app"
@@ -10,7 +10,7 @@ metadata:
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: tap-install-gitops-cluster-role2
+  name: tap-install-gitops-cluster-role3
   annotations:
     kapp.k14s.io/change-group: tap-install-gitops/rbac
     kapp.k14s.io/change-rule: "delete after deleting tap-install-gitops/app"
@@ -22,17 +22,17 @@ rules:
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: cluster-admin-cluster-role-binding2
+  name: cluster-admin-cluster-role-binding3
   annotations:
     kapp.k14s.io/change-group: tap-install-gitops/rbac
     kapp.k14s.io/change-rule: "delete after deleting tap-install-gitops/app"
 subjects:
 - kind: ServiceAccount
-  name: tap-install-gitops-sa2
+  name: tap-install-gitops-sa3
   namespace: default
 - kind: ServiceAccount
-  name: tap-install-gitops-sa2
-  namespace: tap-install-gitops2
+  name: tap-install-gitops-sa3
+  namespace: tap-install-gitops3
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

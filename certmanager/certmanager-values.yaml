@@ -4,4 +4,4 @@
 ---
 certmanager:
   version: "1.5.3+vmware.2-tkg.1"
-  namespace: tap-install-gitops2
+  namespace: tap-install-gitops3

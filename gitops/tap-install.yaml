@@ -2,12 +2,12 @@ apiVersion: kappctrl.k14s.io/v1alpha1
 kind: App
 metadata:
   name: tap-install-gitops
-  namespace: tap-install-gitops2
+  namespace: tap-install-gitops3
   annotations:
     kapp.k14s.io/change-group: tap-install-gitops/app
     kapp.k14s.io/change-rule: "upsert after upserting tap-install-gitops/rbac"
 spec:
-  serviceAccountName: tap-install-gitops-sa2
+  serviceAccountName: tap-install-gitops-sa3
   fetch:
   - git:
       url: https://github.com/tanzu-end-to-end/tapp-gitops-ref
