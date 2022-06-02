@@ -7,7 +7,7 @@ metadata:
     kapp.k14s.io/change-group: tap-install-gitops/app
     kapp.k14s.io/change-rule: "upsert after upserting tap-install-gitops/rbac"
 spec:
-  serviceAccountName: tap-install-gitops-sa
+  serviceAccountName: tap-install-gitops-sa2
   fetch:
   - git:
       url: https://github.com/tanzu-end-to-end/tapp-gitops-ref
