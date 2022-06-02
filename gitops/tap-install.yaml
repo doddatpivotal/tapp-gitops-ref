@@ -10,7 +10,7 @@ spec:
   serviceAccountName: tap-install-gitops-sa
   fetch:
   - git:
-      url: https://github.comtanzu-end-to-end/tapp-gitops-ref
+      url: https://github.com/tanzu-end-to-end/tapp-gitops-ref
       ref: origin/main
   template:
   - ytt:
