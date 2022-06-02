@@ -12,5 +12,5 @@ spec:
     refName: cert-manager.tanzu.vmware.com
     versionSelection:
       constraints: #@ str(data.values.certmanager.version)
-  serviceAccountName: tap-default-sa3
+  serviceAccountName: tap-install-gitops-sa3
 
