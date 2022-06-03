@@ -29,7 +29,7 @@ spec:
   packageRef:
     refName: contour.tanzu.vmware.com
     versionSelection:
-      constraints: #@ str(data.values.certmanager.version)
+      constraints: #@ str(data.values.contour.version)
   serviceAccountName: contour-install-default-sa
   values:
   - secretRef:
