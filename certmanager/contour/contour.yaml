@@ -1,0 +1,37 @@
+#@ load("@ytt:data", "data")
+#@ load("@ytt:yaml", "yaml")
+---
+#@ def config():
+envoy:
+  service: 
+    type: LoadBalancer
+    externalTrafficPolicy: Local
+#@ end
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: contour-values
+  namespace: #@ data.values.contour.namespace
+type: Opaque
+stringData:
+  values.yml: #@ yaml.encode(config())
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  name: contour-packageinstall
+  namespace: #@ data.values.contour.namespace
+  annotations:
+    kapp.k14s.io/change-group: contour
+    kapp.k14s.io/change-rule: "upsert after upserting contour-install/rbac"
+spec:
+  packageRef:
+    refName: contour.tanzu.vmware.com
+    versionSelection:
+      constraints: #@ str(data.values.certmanager.version)
+  serviceAccountName: contour-install-default-sa
+  values:
+  - secretRef:
+      name: contour-values
+
