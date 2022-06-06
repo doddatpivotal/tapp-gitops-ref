@@ -5,20 +5,18 @@
 #@ def config():
 ---
 
-# The namespace in which to deploy ExternalDNS.
 namespace: tanzu-system-service-discovery
 
-# Deployment related configuration
 deployment:
   args:
     - --source=service
     - --source=ingress
-    - --source=contour-httpproxy # Provide this to enable Contour HTTPProxy support. Must have Contour installed or external-dns will fail.
-    - --policy=upsert-only # would prevent ExternalDNS from deleting any records, omit to enable full synchronization
+    - --source=contour-httpproxy 
+    - --policy=upsert-only 
     - --registry=txt
-    - --txt-prefix=txt # disambiguates TXT records from CNAME records
+    - --txt-prefix=txt 
     - --provider=aws
-    - --aws-zone-type=public # only look at public hosted zones (valid values are public, private or no value for both)
+    - --aws-zone-type=public 
     - --aws-prefer-cname
   env:
     - name: AWS_ACCESS_KEY_ID
