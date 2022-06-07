@@ -42,3 +42,8 @@ metadata:
 type: Opaque
 stringData:
   values.yml: #@ yaml.encode(config())
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tanzu-system-service-discovery
