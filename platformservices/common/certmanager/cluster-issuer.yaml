@@ -4,7 +4,7 @@ metadata:
   name: letsencrypt-contour-cluster-issuer
 spec:
   acme:
-    email: "jaguilar@pivotal.io"
+    email: "platform-ops@pivotal.io"
     privateKeySecretRef:
       name: acme-account-key
     server: https://acme-v02.api.letsencrypt.org/directory
