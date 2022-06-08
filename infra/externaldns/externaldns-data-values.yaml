@@ -1,0 +1,9 @@
+#@data/values
+
+#@overlay/match-child-defaults missing_ok=True
+---
+externaldns:
+  version: "0.10.0+vmware.1-tkg.1"
+  namespace: tap-install-gitops
+
+
