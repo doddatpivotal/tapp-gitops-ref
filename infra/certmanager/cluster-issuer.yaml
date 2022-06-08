@@ -1,0 +1,27 @@
+apiVersion: secretgen.carvel.dev/v1alpha1
+kind: SecretImport
+metadata:
+  name: route53-credentials
+  namespace: cert-manager
+spec:
+  fromNamespace: tap-install-gitops
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-contour-cluster-issuer
+  namespace: cert-manager
+spec:
+  acme:
+    email: "jaguilar@pivotal.io"
+    privateKeySecretRef:
+      name: acme-account-key
+    server: https://acme-v02.api.letsencrypt.org/directory
+    solvers:
+    - dns01:
+        route53:
+          region: us-east-2
+          accessKeyID: AKIAQVVZ3UQPJNCAENVN
+          secretAccessKeySecretRef:
+            name: route53-credentials
+            key: aws_secret_access_key           
