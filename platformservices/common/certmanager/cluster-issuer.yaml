@@ -3,8 +3,8 @@ kind: ClusterIssuer
 metadata:
   name: letsencrypt-contour-cluster-issuer
   annotations:
+    kapp.k14s.io/change-group: certmanager/cluster-issuer
     kapp.k14s.io/change-rule: "upsert after upserting certmanager"
-
 spec:
   acme:
     email: "platform-ops@pivotal.io"
