@@ -1,0 +1,69 @@
+#@ load("@ytt:data", "data")
+#@ load("@ytt:yaml", "yaml")
+
+---
+#@ def config():
+profile: full
+ceip_policy_disclosed: true #! Installation fails if this is set to 'false'
+cnrs:
+  domain_name: #@ data.values.tap.domains.main
+buildservice:
+  kp_default_repository: #@ "{}/{}".format(data.values.tap.credentials.registry.host, data.values.tap.credentials.registry.repositories.buildService)
+  kp_default_repository_username: #@ data.values.tap.credentials.registry.username
+  kp_default_repository_password: #@ data.values.tap.credentials.registry.password
+  tanzunet_username: #@ data.values.tap.credentials.tanzuNet.username
+  tanzunet_password: #@ data.values.tap.credentials.tanzuNet.password
+  descriptor_name: "tap-1.0.0-full"
+  enable_automatic_dependency_updates: true
+supply_chain: basic
+
+ootb_supply_chain_basic:
+  registry:
+    server: #@ data.values.tap.credentials.supplychainregistry.host
+    repository: #@ data.values.tap.credentials.supplychainregistry.repositories.ootbSupplyChain
+  gitops:
+    ssh_secret: ""
+
+contour:
+  envoy:
+    service:
+      type: LoadBalancer
+learningcenter:
+  ingressDomain: #@ data.values.tap.domains.learningcenter
+tap_gui:
+  service_type: ClusterIP
+  ingressEnabled: "true"
+  ingressDomain: #@ data.values.tap.domains.base
+  app_config:
+    supplyChain:
+      enablePlugin: true
+    app:
+        baseUrl: #@ "http://{}".format(data.values.tap.domains.tapGui)
+    catalog:
+        locations:
+        - type: url
+          target: #@ data.values.tap.catalog
+    backend:
+        baseUrl: #@ "http://{}".format(data.values.tap.domains.tapGui)
+        cors:
+            origin: #@ "http://{}".format(data.values.tap.domains.tapGui)
+
+metadata_store:
+  app_service_type: LoadBalancer #! (optional) Defaults to LoadBalancer. Change to NodePort for distributions t
+
+grype:
+  namespace: #@ data.values.tap.devNamespace
+  targetImagePullSecret: "tap-registry"
+excluded_packages:
+- cert-manager.tanzu.vmware.com
+- contour.tanzu.vmware.com
+#@ end
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: tap-values
+  namespace: #@ data.values.tap.namespace
+type: Opaque
+stringData:
+  values.yml: #@ yaml.encode(config())

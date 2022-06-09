@@ -1,0 +1,7 @@
+#@data/values
+
+#@overlay/match-child-defaults missing_ok=True
+---
+tap:
+  version: "catalog: gitcatalog"
+  namespace: platform-svcs

@@ -4,4 +4,4 @@
 ---
 contour:
   version: "1.18.2+vmware.1-tkg.1"
-  namespace: tap-install-gitops
+  namespace: platform-svcs
