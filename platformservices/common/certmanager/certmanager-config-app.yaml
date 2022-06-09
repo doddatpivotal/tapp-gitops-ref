@@ -1,0 +1,20 @@
+apiVersion: kappctrl.k14s.io/v1alpha1
+kind: App
+metadata:
+  name: certmanager-config-app
+  namespace: platform-svcs
+  annotations:
+    kapp.k14s.io/change-group: certmanager-config-app/app
+    kapp.k14s.io/change-rule: "upsert after upserting certmanager"
+spec:
+  serviceAccountName: tap-install-gitops-sa
+  fetch:
+  - git:
+      url: https://github.com/tanzu-end-to-end/tapp-gitops-ref
+      ref: origin/main
+  template:
+  - ytt:
+      paths:
+      - platformservices/certs
+  deploy:
+  - kapp: {}

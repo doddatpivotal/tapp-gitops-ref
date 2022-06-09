@@ -8,8 +8,6 @@ metadata:
   annotations:
     kapp.k14s.io/change-group: certmanager
     kapp.k14s.io/change-rule.1: "upsert after upserting certmanager-install/rbac"
-    kapp.k14s.io/change-rule.2: "upsert before upserting certmanager-install/cluster-issuer"
-    
 spec:
   packageRef:
     refName: cert-manager.tanzu.vmware.com
