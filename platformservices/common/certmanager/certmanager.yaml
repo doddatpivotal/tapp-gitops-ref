@@ -7,11 +7,10 @@ metadata:
   namespace: #@ data.values.certmanager.namespace
   annotations:
     kapp.k14s.io/change-group: certmanager
-    kapp.k14s.io/change-rule.1: "upsert after upserting certmanager-install/rbac"
 spec:
   packageRef:
     refName: cert-manager.tanzu.vmware.com
     versionSelection:
       constraints: #@ str(data.values.certmanager.version)
-  serviceAccountName: certmanager-install-default-sa
+  serviceAccountName: tap-install-gitops-sa
 

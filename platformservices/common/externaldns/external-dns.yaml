@@ -50,7 +50,6 @@ metadata:
   namespace: #@ data.values.externaldns.namespace
   annotations:
     kapp.k14s.io/change-group: externaldns
-    kapp.k14s.io/change-rule: "upsert after upserting externaldns-install/rbac"
 spec:
   packageRef:
     refName: external-dns.tanzu.vmware.com

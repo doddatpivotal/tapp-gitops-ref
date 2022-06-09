@@ -24,14 +24,13 @@ metadata:
   namespace: #@ data.values.contour.namespace
   annotations:
     kapp.k14s.io/change-group: contour
-    kapp.k14s.io/change-rule.1: "upsert after upserting contour-install/rbac"
     kapp.k14s.io/change-rule.2: "upsert after upserting certmanager"
 spec:
   packageRef:
     refName: contour.tanzu.vmware.com
     versionSelection:
       constraints: #@ str(data.values.contour.version)
-  serviceAccountName: contour-install-default-sa
+  serviceAccountName: tap-install-gitops-sa
   values:
   - secretRef:
       name: contour-values
