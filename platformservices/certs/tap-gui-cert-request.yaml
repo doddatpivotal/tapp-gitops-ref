@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: tap-gui-certificate
+  namespace: platform-svcs
+spec:
+  secretName: tap-gui-tls-secret
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-contour-cluster-issuer
+  commonName: "tap-gui.appref1.appref.end2end.link"
+  dnsNames:
+  - "tap-gui.appref1.appref.end2end.link"
