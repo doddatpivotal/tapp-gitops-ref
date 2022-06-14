@@ -49,15 +49,15 @@ tap_gui:
     supplyChain:
       enablePlugin: true
     app:
-        baseUrl: #@ "http://{}".format(data.values.tap.domains.tapGui)
+        baseUrl: #@ "https://{}".format(data.values.tap.domains.tapGui)
     catalog:
         locations:
         - type: url
           target: #@ data.values.tap.catalog
     backend:
-        baseUrl: #@ "http://{}".format(data.values.tap.domains.tapGui)
+        baseUrl: #@ "https://{}".format(data.values.tap.domains.tapGui)
         cors:
-            origin: #@ "http://{}".format(data.values.tap.domains.tapGui)
+            origin: #@ "https://{}".format(data.values.tap.domains.tapGui)
 
 metadata_store:
   app_service_type: ClusterIP
