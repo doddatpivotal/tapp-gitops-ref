@@ -17,16 +17,8 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: tap-registry
-  namespace: #@ data.values.tap.namespace
+  namespace: tanzu-package-repo-global
 type: kubernetes.io/dockerconfigjson
 stringData:
   .dockerconfigjson: #@ json.encode(config())
----
-apiVersion: secretgen.carvel.dev/v1alpha1
-kind: SecretExport
-metadata:
-  name: tap-registry
-  namespace: #@ data.values.tap.namespace
-spec:
-  toNamespaces:
-  - '*'
+
