@@ -14,7 +14,7 @@ accelerator:
     enable_tls: true
   tls:
     namespace: tap-install
-    secret_name: accelerator-cert-tls
+    secret_name: accelerator-tls-cert
 buildservice:
   kp_default_repository: #@ "{}/{}".format(data.values.tap.credentials.registry.host, data.values.tap.credentials.registry.repositories.buildService)
   kp_default_repository_username: #@ data.values.tap.credentials.registry.username
