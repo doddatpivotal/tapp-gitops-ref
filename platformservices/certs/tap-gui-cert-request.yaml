@@ -25,4 +25,25 @@ spec:
   commonName: "accelerator.appref1.appref.end2end.link"
   dnsNames:
   - "accelerator.appref1.appref.end2end.link"
-
+---
+apiVersion: projectcontour.io/v1
+kind: TLSCertificateDelegation
+metadata:
+  name: accelerator-tls-secret
+  namespace: tap-install
+spec:
+  delegations:
+    - secretName: accelerator-tls-secret
+      targetNamespaces:
+      - "*"
+---
+apiVersion: projectcontour.io/v1
+kind: TLSCertificateDelegation
+metadata:
+  name: tap-gui-tls-secret
+  namespace: tap-install
+spec:
+  delegations:
+    - secretName: tap-gui-tls-secret
+      targetNamespaces:
+      - "*"
