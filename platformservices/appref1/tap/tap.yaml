@@ -62,7 +62,7 @@ tap_gui:
 metadata_store:
   app_service_type: ClusterIP
   ingress_enabled: "true"
-  ingress_domain: one.appref.end2end.link
+  ingress_domain: appref1.appref.end2end.link
 grype:
   namespace: #@ data.values.tap.devNamespace
   targetImagePullSecret: "tap-registry"
