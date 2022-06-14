@@ -94,3 +94,6 @@ spec:
     versionSelection:
       constraints: "1.1.0"
   serviceAccountName: tap-install-gitops-sa
+  values:
+  - secretRef:
+      name: tap-values
