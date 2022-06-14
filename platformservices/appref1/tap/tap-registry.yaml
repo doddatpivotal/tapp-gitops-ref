@@ -21,3 +21,13 @@ metadata:
 type: kubernetes.io/dockerconfigjson
 stringData:
   .dockerconfigjson: #@ json.encode(config())
+---
+apiVersion: secretgen.carvel.dev/v1alpha1
+kind: SecretExport
+metadata:
+  name: tap-registry
+  namespace: tap-install
+spec:
+  toNamespaces:
+  - '*'
+---
