@@ -4,7 +4,7 @@ apiVersion: packaging.carvel.dev/v1alpha1
 kind: PackageRepository
 metadata:
   name: tanzu-tap-repository
-  namespace: tanzu-package-repo-global
+  namespace: tap-install
   annotations:
     kapp.k14s.io/change-group: tap-install/tap-repo
 spec:

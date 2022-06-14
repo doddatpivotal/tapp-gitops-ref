@@ -17,32 +17,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: tap-registry
-  namespace: tanzu-package-repo-global
+  namespace: tap-install
 type: kubernetes.io/dockerconfigjson
 stringData:
   .dockerconfigjson: #@ json.encode(config())
----
-apiVersion: secretgen.carvel.dev/v1alpha1
-kind: SecretExport
-metadata:
-  name: tap-registry
-  namespace: tanzu-package-repo-global
-spec:
-  toNamespaces:
-  - '*'
----
-apiVersion: secretgen.carvel.dev/v1alpha1
-kind: SecretImport
-metadata:
-  name: tap-registry
-  namespace: tap-install
-spec:
-  fromNamespace: tanzu-package-repo-global
----
-apiVersion: secretgen.carvel.dev/v1alpha1
-kind: SecretImport
-metadata:
-  name: tap-registry
-  namespace: platform-svcs
-spec:
-  fromNamespace: tanzu-package-repo-global

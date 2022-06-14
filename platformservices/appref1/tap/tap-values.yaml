@@ -4,4 +4,4 @@
 ---
 tap:
   version: "1.1.0"
-  namespace: platform-svcs
+  namespace: tap-install

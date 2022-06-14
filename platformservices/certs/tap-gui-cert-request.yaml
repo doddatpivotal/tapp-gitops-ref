@@ -2,7 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: tap-gui-certificate
-  namespace: platform-svcs
+  namespace: tap-install
 spec:
   secretName: tap-gui-tls-secret
   issuerRef:
@@ -16,7 +16,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: accelerator-certificate
-  namespace: platform-svcs
+  namespace: tap-install
 spec:
   secretName: accelerator-tls-secret
   issuerRef:

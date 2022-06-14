@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: tap-install-gitops-sa
-  namespace: platform-svcs
+  namespace: tap-install
   annotations:
     kapp.k14s.io/change-group: tap-install-gitops/rbac
     kapp.k14s.io/change-rule: "delete after deleting tap-install-gitops/app"
@@ -32,7 +32,7 @@ subjects:
   namespace: default
 - kind: ServiceAccount
   name: tap-install-gitops-sa
-  namespace: platform-svcs
+  namespace: tap-install
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

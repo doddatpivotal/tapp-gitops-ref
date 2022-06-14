@@ -4,7 +4,7 @@ apiVersion: kappctrl.k14s.io/v1alpha1
 kind: App
 metadata:
   name: tap-install-gitops
-  namespace: platform-svcs
+  namespace: tap-install
   annotations:
     kapp.k14s.io/change-group: tap-install-gitops/app
     kapp.k14s.io/change-rule.1: "upsert after upserting tap-install-gitops/rbac"
