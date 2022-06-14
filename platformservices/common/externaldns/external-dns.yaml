@@ -59,3 +59,10 @@ spec:
   values:
   - secretRef:
       name: externaldns-values
+---
+#! Need to figure out if we can use platform-svcs? Do all the 
+#! value properties expose namespace settings in tapvalues
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tap-install
