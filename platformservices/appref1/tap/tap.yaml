@@ -79,3 +79,18 @@ metadata:
 type: Opaque
 stringData:
   values.yml: #@ yaml.encode(config())
+
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  name: tap-packageinstall
+  namespace: platform-svcs
+  annotations:
+    kapp.k14s.io/change-group: tap
+spec:
+  packageRef:
+    refName: tap.tanzu.vmware.com
+    versionSelection:
+      constraints: "1.1.0"
+  serviceAccountName: tap-install-gitops-sa
