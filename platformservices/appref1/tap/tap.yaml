@@ -97,3 +97,9 @@ spec:
   values:
   - secretRef:
       name: tap-values
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tap-install
