@@ -42,6 +42,9 @@ tap_gui:
   service_type: ClusterIP
   ingressEnabled: "true"
   ingressDomain: #@ data.values.tap.domains.base
+  tls:
+    namespace: platform-svcs
+    secretName: tap-gui-tls-secret
   app_config:
     supplyChain:
       enablePlugin: true
@@ -59,7 +62,7 @@ tap_gui:
 metadata_store:
   app_service_type: ClusterIP
   ingress_enabled: "true"
-  ingress_domain: appref1.appref.end2end.link
+  ingress_domain: one.appref.end2end.link
 grype:
   namespace: #@ data.values.tap.devNamespace
   targetImagePullSecret: "tap-registry"
