@@ -22,7 +22,7 @@ spec:
   issuerRef:
     kind: ClusterIssuer
     name: letsencrypt-contour-cluster-issuer
-  commonName: "tap-gui.appref1.appref.end2end.link"
+  commonName: "accelerator.appref1.appref.end2end.link"
   dnsNames:
   - "accelerator.appref1.appref.end2end.link"
 
