@@ -6,11 +6,13 @@ paths:
  - platformservices/appref1
 tap:
   base:
-    domain: appref1.appref.end2end.link
+    catalog:
+      fqdn: https://github.com/jeffellin/tap-catalog/blob/main/catalog-info.yaml
+    domain: tap-iterate.tanzu-aws-lab.winterfell.fun
   tapgui:
-    domain: tap-gui.appref1.appref.end2end.link
+    domain: tap-gui.tap-iterate.tanzu-aws-lab.winterfell.fun
   learningcenter:
-    domain: learningcenter.appref1.appref.end2end.link
+    domain: learningcenter.tap-iterate.tanzu-aws-lab.winterfell.fun
   cnr:
-    domain: cnr.appref1.appref.end2end.link
+    domain: cnr.tap-iterate.tanzu-aws-lab.winterfell.fun
   

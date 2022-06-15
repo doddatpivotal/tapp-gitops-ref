@@ -8,9 +8,9 @@ spec:
   issuerRef:
     kind: ClusterIssuer
     name: letsencrypt-contour-cluster-issuer
-  commonName: "tap-gui.appref1.appref.end2end.link"
+  commonName: "tap-gui.tap-iterate.tanzu-aws-lab.winterfell.fun"
   dnsNames:
-  - "tap-gui.appref1.appref.end2end.link"
+  - "tap-gui.tap-iterate.tanzu-aws-lab.winterfell.fun"
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
@@ -22,9 +22,9 @@ spec:
   issuerRef:
     kind: ClusterIssuer
     name: letsencrypt-contour-cluster-issuer
-  commonName: "accelerator.appref1.appref.end2end.link"
+  commonName: "accelerator.tap-iterate.tanzu-aws-lab.winterfell.fun"
   dnsNames:
-  - "accelerator.appref1.appref.end2end.link"
+  - "accelerator.tap-iterate.tanzu-aws-lab.winterfell.fun"
 ---
 apiVersion: projectcontour.io/v1
 kind: TLSCertificateDelegation

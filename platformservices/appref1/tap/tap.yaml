@@ -8,7 +8,7 @@ ceip_policy_disclosed: true #! Installation fails if this is set to 'false'
 cnrs:
   domain_name: #@ data.values.tap.domains.cnr
 accelerator:
-  domain: appref1.appref.end2end.link
+  domain: tap-iterate.tanzu-aws-lab.winterfell.fun
   ingress:
     include: true
     enable_tls: true
@@ -62,7 +62,7 @@ tap_gui:
 metadata_store:
   app_service_type: ClusterIP
   ingress_enabled: "true"
-  ingress_domain: appref1.appref.end2end.link
+  ingress_domain: tap-iterate.tanzu-aws-lab.winterfell.fun
 grype:
   namespace: #@ data.values.tap.devNamespace
   targetImagePullSecret: "tap-registry"
