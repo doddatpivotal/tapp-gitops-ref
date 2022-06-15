@@ -1,7 +1,16 @@
 ---
 owner_id: Z05350071G03RV0PEHBLU
-domain_filter: apref1.appref.end2end.link
+domain_filter: appref.end2end.link
 paths:
  - platformservices/common
  - platformservices/appref1
-
+tap:
+  base:
+    domain: appref1.appref.end2end.link
+  tapgui:
+    domain: tap-gui.appref1.appref.end2end.link
+  learningcenter:
+    domain: learningcenter.appref1.appref.end2end.link
+  cnr:
+    domain: cnr.appref1.appref.end2end.link
+  

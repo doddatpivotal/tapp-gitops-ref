@@ -6,7 +6,7 @@
 profile: full
 ceip_policy_disclosed: true #! Installation fails if this is set to 'false'
 cnrs:
-  domain_name: #@ data.values.tap.domains.main
+  domain_name: #@ data.values.tap.domains.cnr
 accelerator:
   domain: appref1.appref.end2end.link
   ingress:
