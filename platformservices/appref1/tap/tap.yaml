@@ -95,7 +95,7 @@ spec:
   packageRef:
     refName: tap.tanzu.vmware.com
     versionSelection:
-      constraints: "1.1.1"
+      constraints: #@ data.values.tap.version
   serviceAccountName: tap-install-gitops-sa
   values:
   - secretRef:
