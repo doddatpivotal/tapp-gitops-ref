@@ -14,7 +14,7 @@ export CFG_tap__supplychainregistry__password=scp
 
 ## Create the app
 
-ytt -f gitops/common -f gitops/appref1 --data-values-env CFG --data-values-file=config-appref1.yaml
+kapp deploy -a something -f <(ytt -f gitops --data-values-env CFG --data-values-file=config-appref1.yaml)
 
 ## Setup dev workspace
 
