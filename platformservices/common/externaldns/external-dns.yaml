@@ -39,6 +39,9 @@ kind: Secret
 metadata:
   name: externaldns-values
   namespace: #@ data.values.externaldns.namespace
+  annotations:
+    kapp.k14s.io/change-rule: "delete after deleting externaldns"
+
 type: Opaque
 stringData:
   values.yml: #@ yaml.encode(config())

@@ -25,6 +25,7 @@ metadata:
   annotations:
     kapp.k14s.io/change-group: contour
     kapp.k14s.io/change-rule.2: "upsert after upserting certmanager"
+    kapp.k14s.io/change-rule.3: "delete after deleting tap"
 spec:
   packageRef:
     refName: contour.tanzu.vmware.com
