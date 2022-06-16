@@ -1,6 +1,4 @@
 ---
-owner_id: Z05350071G03RV0PEHBLU
-domain_filter: appref.end2end.link
 paths:
  - platformservices/common
  - platformservices/appref1

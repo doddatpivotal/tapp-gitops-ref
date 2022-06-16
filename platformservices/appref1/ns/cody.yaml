@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cody
+---
+apiVersion: kappctrl.k14s.io/v1alpha1
+kind: App
+metadata:
+  name: cody-dev-ns
+  namespace: tap-install
+spec:
+  serviceAccountName: tap-install-gitops-sa
+  fetch:
+  - git:
+      url: https://github.com/doddatpivotal/tapp-gitops-ref
+      ref: origin/main
+  template:
+  - ytt:
+      paths:
+      - platformservices/dev-namespace
+  deploy:
+  - kapp: 
+      intoNs: cody
