@@ -6,7 +6,7 @@ metadata:
 apiVersion: kappctrl.k14s.io/v1alpha1
 kind: App
 metadata:
-  name: cody-dev-ns
+  name: dev-ns-cody
   namespace: tap-install
 spec:
   serviceAccountName: tap-install-gitops-sa
